@@ -1,6 +1,8 @@
+# English version (French version below) :
+
 This project is a simple brute force password (or string in general) cracker. It does not directly allow passwords to be recovered without prior modification, and was not designed for this purpose. This allows you to understand the ease of programming this hacking rudiment (it took me less than 48 hours to code it), and at the same time its ineffectiveness (test the long string of characters and you will understand).
 
-> # The different modes
+> ## The different modes
 >
 > ### 1-Hardrun
 >
@@ -13,3 +15,10 @@ This project is a simple brute force password (or string in general) cracker. It
 > ### 3-Beta(3.0)
 >
 > Beta mode is still under development. It is normally functional but not very efficient.
+
+>## Notes:
+>
+>I am French. The code, comments and console messages are therefore in French. Sorry!
+>But for the console messages, they are few in number and non-technical, so you can easily translate them with tools like "Google translate".
+>
+>
