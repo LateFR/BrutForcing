@@ -10,4 +10,6 @@ This project is a simple brute force password (or string in general) cracker. It
 >
 > Comfort mode is slower, but they will give you regular reports based on a time interval that you have defined in the console (such as the number of attempts already made, the estimated time remaining, etc.).
 >
-> 
+> ### 3-Beta(3.0)
+>
+> Beta mode is still under development. It is normally functional but not very efficient.
