@@ -3,4 +3,5 @@ This project is a simple brute force password (or string in general) cracker. It
 > # The different modes
 >
 > ### 1-Hardrun
-> 
+>
+> Hardrun mode is the most efficient mode. It will report back to you about the progress after 180 seconds in the console. Other than that, it will stop and report when it finds the password
