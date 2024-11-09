@@ -7,4 +7,7 @@ This project is a simple brute force password (or string in general) cracker. It
 > Hardrun mode is the most efficient mode. It will report back to you about the progress after 180 seconds in the console. Other than that, it will stop and report when it finds the password
 >
 > ### 2-Comfort (2.0)
-
+>
+> Comfort mode is slower, but they will give you regular reports based on a time interval that you have defined in the console (such as the number of attempts already made, the estimated time remaining, etc.).
+>
+> 
