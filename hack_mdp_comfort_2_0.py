@@ -11,10 +11,12 @@ def brute_force(mot_de_passe_a_trouver, longueur_max, intervalle):
                 essais += 1
                 tentative = ''.join(combinaison)
                                         
-                if tentative == mot_de_passe_a_trouver:
-                    return tentative, essais
-                else:
-                    return tentative
+                if __name__!="__main__": #si la fonction est utilisé dans un autre programme
+                                          
+                    if tentative == mot_de_passe_a_trouver:
+                        return tentative, essais
+                    else:
+                        return tentative
                 # Informer l'utilisateur à intervalles dynamiques
                 heure = time.time()
                 last_time = last_notification_time
