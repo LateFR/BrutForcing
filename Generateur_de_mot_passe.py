@@ -1,8 +1,8 @@
 import string
 import random
 
-#longueur=int(input("Quel longueur pour le mot de passe ? Répondre par un nombre entier: "))
-"""
+longueur=int(input("Quel longueur pour le mot de passe ? Répondre par un nombre entier: "))
+
 try:
     inclure_chiffre=bool(input("Mettre des chiffre ? Répondre par True ou False: "))
 except ValueError:
@@ -14,7 +14,7 @@ except ValueError:
     print("Erreur: La réponse doit être True ou False")
 
 longueur=int(input("Quel longueur pour le mot de passe ? Répondre par un nombre entier: "))
-"""
+
 def generer_mot_de_passe(longueur,inclure_chiffre,inclure_caractere_speciaux):
     caractere_du_mot_de_passe=string.ascii_letters
     
@@ -27,6 +27,22 @@ def generer_mot_de_passe(longueur,inclure_chiffre,inclure_caractere_speciaux):
     mot_de_passe=''.join(random.choice(caractere_du_mot_de_passe) for _ in range(longueur))
     
     return mot_de_passe
-#print(generer_mot_de_passe(longueur,inclure_chiffre,inclure_caractere_speciaux))
-#print(random.choice(string.ascii_letters))
-#print(random.choice(string.digits))
+
+if __name__=="__main__":
+    longueur=int(input("Quel longueur pour le mot de passe ? Répondre par un nombre entier: "))
+
+    try:
+        inclure_chiffre=bool(input("Mettre des chiffre ? Répondre par True ou False: "))
+    except ValueError:
+        print("Erreur: La réponse doit être True ou False")
+
+    try:
+        inclure_caractere_speciaux=bool(input("Mettre des cacrctère spéciaux ? Répondre par True ou False: "))
+    except ValueError:
+        print("Erreur: La réponse doit être True ou False")
+
+    longueur=int(input("Quel longueur pour le mot de passe ? Répondre par un nombre entier: "))
+
+    print(generer_mot_de_passe(longueur,inclure_chiffre,inclure_caractere_speciaux))
+    print(random.choice(string.ascii_letters))
+    print(random.choice(string.digits))
