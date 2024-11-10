@@ -29,5 +29,4 @@ if __name__=="__main__":
         print("Erreur: La réponse doit être True ou False")
 
     print(generer_mot_de_passe(longueur,inclure_chiffre,inclure_caractere_speciaux))
-    print(random.choice(string.ascii_letters))
-    print(random.choice(string.digits))
+    
