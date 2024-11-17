@@ -15,6 +15,13 @@ def brute_force(mot_de_passe_a_trouver, longueur_max):
     nombre_essais_total = sum(len(caracteres) ** longueur for longueur in range(1, longueur_max + 1))
     informer_utilisateur_sur_le_temps=True
 
+    with open("rockyou.txt", "r", encoding= "latin1") as lignes:
+        for ligne in lignes:
+            tentative=ligne.strip()
+            essais+=1
+            if tentative == mot_de_passe_a_trouver:
+                print("find in rockyou")
+                return tentative,essais
     # Générer toutes les combinaisons possibles jusqu'à la longueur spécifiée
     for longueur in range(1, longueur_max + 1):
         for combinaison in itertools.product(caracteres, repeat=longueur):
@@ -33,8 +40,12 @@ def brute_force(mot_de_passe_a_trouver, longueur_max):
 
 # Exemple d'utilisation
 longueur_max = int(input("quel est la longueur max du mot de passe?: "))  # longueur maximum pour chaque essai
-mot_de_passe_secret = Generateur_de_mot_passe.generer_mot_de_passe(longueur_max,True,True)#génération d'un mot de passe
 
+#Change None if you want a custom mdp
+mot_de_passe_secret = None
+
+if mot_de_passe_secret == None:
+    mot_de_passe_secret = Generateur_de_mot_passe.generer_mot_de_passe(longueur_max, True, True)
 
 #Donne la durée du craquage
 start_time = time.time()
