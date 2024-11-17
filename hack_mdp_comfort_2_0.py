@@ -6,11 +6,22 @@ def brute_force(mot_de_passe_a_trouver, longueur_max, intervalle):
         essais_1 = essais
         nombre_essais_total = sum(len(caracteres) ** longueur for longueur in range(1, longueur_max + 1))
         
+        with open("rockyou.txt", "r", encoding= "latin1") as lignes:
+            Nline=0
+            for ligne in lignes:
+                tentative=ligne.strip()
+                essais+=1
+                Nline+=1
+                if tentative == mot_de_passe_a_trouver:
+                    print("Find in Rockyou")
+                    print (f"Line in rockyou.txt: {Nline}")
+                    return tentative,essais
+        print("Not find in Rockyou")
+            
         for longueur in range(1, longueur_max + 1):
             for combinaison in itertools.product(caracteres, repeat=longueur):
                 essais += 1
                 tentative = ''.join(combinaison)
-                                        
                 if __name__!="__main__": #si la fonction est utilisé dans un autre programme
                                           
                     if tentative == mot_de_passe_a_trouver:
@@ -18,6 +29,7 @@ def brute_force(mot_de_passe_a_trouver, longueur_max, intervalle):
                     else:
                         return tentative
                 # Informer l'utilisateur à intervalles dynamiques
+                
                 heure = time.time()
                 last_time = last_notification_time
                 last_notification_time = informer_utilisateur_et_essais_effectues(essais, last_notification_time, intervalle, essais_1, nombre_essais_total)
@@ -29,7 +41,7 @@ def brute_force(mot_de_passe_a_trouver, longueur_max, intervalle):
 if __name__ == "__main__":
     import itertools
     import string
-    import MotDePasse.Generateur_de_mot_passe
+    import Generateur_de_mot_passe
     import time
 
     def informer_nombre_dessais_par_sec(essais, last_time, essais_1):
@@ -74,8 +86,12 @@ if __name__ == "__main__":
         print("Erreur: entrez un entier valide")
         exit(1)
 
-    mot_de_passe_secret = MotDePasse.Generateur_de_mot_passe.generer_mot_de_passe(longueur_max, True, True)
-
+    #Change None if you want a custom mdp
+    mot_de_passe_secret = None
+    
+    if mot_de_passe_secret == None:
+        mot_de_passe_secret = Generateur_de_mot_passe.generer_mot_de_passe(longueur_max, True, True)
+    
     # Donne la durée du craquage
     start_time = time.time()
 
