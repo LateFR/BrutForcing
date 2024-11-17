@@ -74,12 +74,7 @@ if __name__ == "__main__":
     
 
     # Exemple d'utilisation
-    try: 
-        longueur_max = int(input("Quel est la longueur max du mot de passe? "))  # longueur maximum pour chaque essai
-    except ValueError:
-        print("Erreur: entrez un entier valide")
-        exit(1)
-
+    
     try:
         intervalle = int(input("À quel intervalle de temps entre chaque fois que l'on vous informe de l'avancée? (en secondes): "))
     except ValueError:
@@ -90,8 +85,16 @@ if __name__ == "__main__":
     mot_de_passe_secret = None
     
     if mot_de_passe_secret == None:
+        try: 
+            longueur_max = int(input("Quel est la longueur max du mot de passe? "))  # longueur maximum pour chaque essai
+        except ValueError:
+            print("Erreur: entrez un entier valide")
+            exit(1)
+
         mot_de_passe_secret = Generateur_de_mot_passe.generer_mot_de_passe(longueur_max, True, True)
-    
+    else:
+        longueur_max=len(mot_de_passe_secret)
+
     # Donne la durée du craquage
     start_time = time.time()
 
