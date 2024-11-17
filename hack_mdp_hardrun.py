@@ -45,8 +45,15 @@ longueur_max = int(input("quel est la longueur max du mot de passe?: "))  # long
 mot_de_passe_secret = None
 
 if mot_de_passe_secret == None:
-    mot_de_passe_secret = Generateur_de_mot_passe.generer_mot_de_passe(longueur_max, True, True)
+    try: 
+        longueur_max = int(input("Quel est la longueur max du mot de passe? "))  # longueur maximum pour chaque essai
+    except ValueError:
+        print("Erreur: entrez un entier valide")
+        exit(1)
 
+    mot_de_passe_secret = Generateur_de_mot_passe.generer_mot_de_passe(longueur_max, True, True)
+else:
+    longueur_max=len(mot_de_passe_secret)
 #Donne la durée du craquage
 start_time = time.time()
 
